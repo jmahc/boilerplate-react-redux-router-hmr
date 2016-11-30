@@ -1,0 +1,43 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# build
+build
+dist
+tmp
+
+# coverage reports
+/coverage
+
+# dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# IntelliJ
+.idea
+/*.iml
+
+# testing
+coverage
+test-results.html
+
+# logs
+logs
+*.log
+npm-debug.log
+stats.json
+
+# sass
+.sass-cache
+
+# misc
+.DS_Store
+.env
+.htaccess
+
+# production
+build
+Gemfile.lock
+
+#sublime text project files
+/*.sublime-project
+/*.sublime-workspace
