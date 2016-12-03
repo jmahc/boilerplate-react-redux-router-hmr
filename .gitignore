@@ -47,4 +47,5 @@ webpack-stats.json
 
 # yarn.lock
 # https://yarnpkg.com/en/docs/usage
+*.lock
 yarn.lock
