@@ -2,6 +2,7 @@
 *Current Version as of 12/02/2016*: 1.0.1
 
 Welcome to my app! Hopefully this will help with your Webpack 2, HMR, react, react-router, and Redux troubles!
+Note: `package.json` has **hard-coded** dependencies!  I will update these manually to ensure they do not break.
 
 ---
 
@@ -90,6 +91,9 @@ Below are several tasks that I want to tackle:
         - [ ] [happypack](https://www.npmjs.com/package/happypack) implementation
   - [ ] Production
     - [ ] [purifycss-webpack-plugin](https://www.npmjs.com/package/purifycss-webpack-plugin) implementation
+- [ ] Repository tools
+  - [ ] Code coverage
+  - [ ] Up-to-date package dependency notification
 
 ---
 
