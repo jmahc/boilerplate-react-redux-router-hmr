@@ -38,6 +38,13 @@ stats.json
 build
 Gemfile.lock
 
-#sublime text project files
+# sublime text project files
 /*.sublime-project
 /*.sublime-workspace
+
+# webpack files (for cached DLL's)
+webpack-stats.json
+
+# yarn.lock
+# https://yarnpkg.com/en/docs/usage
+yarn.lock

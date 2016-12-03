@@ -3,13 +3,13 @@ import React from 'react';
 import { Link } from 'react-router';
 // import ReactDOM from 'react-dom';
 
-const Home = () => (
+const About = () => (
   <div>
     <h1>
-      Home route :)
+      About route :)
     </h1>
-    <Link to="/about">Go to about route</Link>
+    <Link to="/">Go to home route</Link>
   </div>
 );
 
-export default Home;
+export default About;

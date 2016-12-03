@@ -8,11 +8,20 @@
     "node": true,
     "mocha": true
   },
+  // Custom rules for ESLINT
   "rules": {
+    // Package rules for `eslint-plugin-jsx-a11y`
+    // Required by `eslint-plugin-airbnb`
     "jsx-a11y/anchor-has-content": 0,
+
+    // Package rules for `eslint-plugin-react`
+    // Required by `eslint-plugin-airbnb`
     "react/no-multi-comp": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": 0,
+
+    // Package rules for `eslint-plugin-import`
+    // Required by `eslint-plugin-airbnb-base`
     "import/default": 0,
     "import/extensions": 0,
     "import/named": 0,
@@ -21,6 +30,9 @@
     "import/no-extraneous-dependencies": 0,
     "import/no-named-as-default": 2,
     "import/no-unresolved": 0,
+
+    // Vanilla JS Rules
+    "class-methods-use-this": 0,
     "indent": [
       2,
       2,
@@ -48,6 +60,7 @@
       ]
     }
   },
+  // Ignore these global variables during linting
   "globals": {
     "__CLIENT__": true,
     "__DEVELOPMENT__": true,

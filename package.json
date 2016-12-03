@@ -1,27 +1,35 @@
 {
-  "name": "clock-react",
-  "version": "1.0.0",
-  "description": "A project that shows a clock.  Built with ReactJS.",
+  "name": "boilerplate-react-redux-router-hmr",
+  "version": "1.0.1",
+  "description": "The beginnings of boilerplate that works. Built with ReactJS, React-Router, HMR support and Webpack 2. Different branches will implement these tools individually and together.",
   "main": "app.js",
   "scripts": {
-    "dev:airbnb": "cd node_modules/eslint-config-airbnb/node_modules && npm install eslint-config-airbnb-base",
+    "dev": "webpack-dev-server",
     "start": "webpack-dev-server",
     "test": "npm run test"
   },
   "repository": {
     "type": "git",
-    "url": "https://tbd.com"
+    "url": "git@github.com:jmahc/boilerplate-react-redux-router-hmr.git"
   },
   "keywords": [
-    "ReactJS",
-    "React",
-    "Webpack",
-    "2",
-    "Web",
-    "development"
+    "boilerplate",
+    "hot module replacement",
+    "react",
+    "react-hot-loader",
+    "react-router",
+    "react hot loader",
+    "react router",
+    "webpack 2"
   ],
-  "author": "Jordan McArdle",
-  "license": "ISC",
+  "author": {
+    "name": "Jordan McArdle",
+    "blog": "https://blog.mcardle.tech/",
+    "blog-post": "https://blog.mcardle.tech/?link=TBD",
+    "github": "https://github.com/jmahc/",
+    "website": "http://mcardle.tech/"
+  },
+  "license": "MIT",
   "dependencies": {
     "axios": "0.9.1",
     "lodash": "4.6.1",
@@ -32,6 +40,7 @@
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel": "6.5.2",
+    "babel-cli": "6.18.0",
     "babel-core": "6.16.0",
     "babel-eslint": "7.0.0",
     "babel-loader": "6.2.7",
@@ -71,8 +80,8 @@
     "react-tap-event-plugin": "2.0.1",
     "redbox-react": "1.3.2",
     "rimraf": "2.5.4",
+    "sass-lint": "1.10.2",
     "sass-loader": "4.0.2",
-    "stylelint-webpack-plugin": "0.4.0",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "2.1.0-beta.27",
