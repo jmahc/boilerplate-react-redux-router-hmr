@@ -7,26 +7,37 @@ Welcome to my app! Hopefully this will help with your Webpack 2, HMR, react, rea
 
 ## Installation Instructions
 1. Clone the repository
+
   ```sh
   git clone git@github.com:jmahc/boilerplate-react-redux-router-hmr.git boilerplate-application
   ```
+
 2. Change directory to the repository's newly cloned location
+
   ```sh
   cd boilerplate-application
   ```
+
 3. Install the dependencies
+
   ```sh
   npm install
   ```
+
   or if using [Yarn](https://github.com/yarnpkg/yarn)
+
   ```sh
   yarn
   ```
+
 4. Run your application in Development mode
+
   ```sh
   npm run dev
   ```
+
 5. Run your application in Production mode (coming soon)
+
   ```sh
   npm run start
   ```
