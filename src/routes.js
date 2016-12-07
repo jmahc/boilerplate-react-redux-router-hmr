@@ -6,7 +6,7 @@ import { IndexRoute, Route } from 'react-router';
 import { App, Home, About } from 'containers';
 
 const routes = (
-  <Route component={App} path="/">
+  <Route path="/" component={App}>
     <IndexRoute component={Home} path="" />
     <Route component={About} path="/about" />
   </Route>

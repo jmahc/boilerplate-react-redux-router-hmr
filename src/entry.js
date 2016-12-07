@@ -1,10 +1,16 @@
 // Node Modules
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { AppContainer } from 'react-hot-loader';
 
+// Redux-Related
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+
 // Imported Local Files
+import configureStore from './store/configureStore';
 import Root from './containers/Root/Root';
 
 // Development Only
@@ -12,6 +18,7 @@ import Root from './containers/Root/Root';
 
 // Local Variables
 const rootEl = document.getElementById('root');
+const store = configureStore();
 
 injectTapEventPlugin();
 // 300ms response time fix for iOS
@@ -19,7 +26,7 @@ injectTapEventPlugin();
 const renderApp = (RootComponent) => {
   ReactDOM.render(
     <AppContainer>
-      <RootComponent />
+      <RootComponent store={store} history={syncHistoryWithStore(browserHistory, store)} />
     </AppContainer>,
     rootEl,
   );
@@ -27,7 +34,6 @@ const renderApp = (RootComponent) => {
 // render application method for instantiation and HMR.
 
 renderApp(Root);
-// instantiate the application
 
 if (__DEVELOPMENT__ && module.hot) {
   module.hot.accept([
