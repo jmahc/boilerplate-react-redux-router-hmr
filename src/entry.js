@@ -5,10 +5,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { AppContainer } from 'react-hot-loader';
 
 // Imported Local Files
-import Root from './containers/Root/Root';
-
-// Development Only
-// import hotReloadRoutes from './util/hotReloadRoutes';
+import App from './containers/App/App';
 
 // Local Variables
 const rootEl = document.getElementById('root');
@@ -16,27 +13,27 @@ const rootEl = document.getElementById('root');
 injectTapEventPlugin();
 // 300ms response time fix for iOS
 
-const renderApp = (RootComponent) => {
+const renderApp = (Application) => {
   ReactDOM.render(
     <AppContainer>
-      <RootComponent />
+      <Application />
     </AppContainer>,
     rootEl,
   );
 };
 // render application method for instantiation and HMR.
 
-renderApp(Root);
+renderApp(App);
 // instantiate the application
 
 if (__DEVELOPMENT__ && module.hot) {
   module.hot.accept([
-    './containers/Root/Root',
+    './containers/App/App',
   ], () => {
-    const NextRoot = require('./containers/Root/Root').default; // eslint-disable-line global-require
+    const NextApplication = require('./containers/App/App').default; // eslint-disable-line global-require
     // require path is same as module hot path
 
-    renderApp(NextRoot);
+    renderApp(NextApplication);
     // re-render the updated app
   });
 }
