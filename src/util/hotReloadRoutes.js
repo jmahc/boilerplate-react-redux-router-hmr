@@ -13,7 +13,7 @@ export default function hotReloadRoutes(routes, nextRoutes, keyDebug = []) {
     if (!Array.isArray(nextRoutes)) {
       console.warn(
         'Old routes is an array but the next routes are not:',
-        keyDebug.join('.')
+        keyDebug.join('.'),
       );
       return;
     }
@@ -25,7 +25,7 @@ export default function hotReloadRoutes(routes, nextRoutes, keyDebug = []) {
       console.warn(
         'Old routes is an array of', length,
         'but the next routes are an array of ', nextRoutesLength, ':',
-        keyDebug.join('.')
+        keyDebug.join('.'),
       );
       return;
     }
@@ -45,7 +45,7 @@ export default function hotReloadRoutes(routes, nextRoutes, keyDebug = []) {
         console.warn(
           'Old child route has path', childRoute.path,
           'but the next child route has path ', nextChildRoute.path, ':',
-          newKeyDebug.join('.')
+          newKeyDebug.join('.'),
         );
         break;
       }
@@ -57,7 +57,7 @@ export default function hotReloadRoutes(routes, nextRoutes, keyDebug = []) {
 
   const keys = Object.keys(routes);
 
-  for (const key of keys) {
+  for (const key of keys) { // eslint-disable-line no-restricted-syntax
     const nextSubRoutes = nextRoutes[key];
     const newKeyDebug = keyDebug.concat([key]);
 
@@ -74,7 +74,7 @@ export default function hotReloadRoutes(routes, nextRoutes, keyDebug = []) {
       if (!nextSubRoutes || typeof nextSubRoutes !== 'object') {
         console.warn(
           'No matching new routes available for subkey:',
-          newKeyDebug.join('.')
+          newKeyDebug.join('.'),
         );
         return;
       }
