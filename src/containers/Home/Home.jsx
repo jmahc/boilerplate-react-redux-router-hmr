@@ -17,10 +17,10 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>
-          {count}
+          {count} + 1
         </h1>
         <RaisedButton primary onClick={onIncrementClick}>
-          Increment Counter....
+          Increment Counter...!!!!!!
         </RaisedButton>
         <Link to="/about">
           Go to about route

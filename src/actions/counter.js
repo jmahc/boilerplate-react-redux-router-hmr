@@ -1,10 +1,11 @@
 import { INCREMENT_COUNTER } from '../constants';
 
+// ==== Setting the initial state.
 const initialState = {
   count: 0,
 };
 
-// Reducer
+// ==== Reducer
 export default function reducer(state = initialState, action = {}) {
   const { count } = state;
 
@@ -18,7 +19,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-// Action Creators
+// ==== Action Creators
 export function increment() {
   return {
     type: INCREMENT_COUNTER,
