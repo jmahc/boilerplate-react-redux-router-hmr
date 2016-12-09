@@ -1,8 +1,10 @@
+// ==== Node Modules
 import React, { Component, PropTypes } from 'react';
+// ==== Local Files
 import { HelmetHead } from 'containers';
-import { Header } from 'components';
+import { Header, Footer } from 'components';
 
-export default class Layout extends Component {
+class Layout extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
   };
@@ -13,14 +15,13 @@ export default class Layout extends Component {
       <div>
         <HelmetHead />
         <Header />
-        <div className="content">
+        <div className="app-content">
           {children}
         </div>
-        <div className="footer">
-          <hr />
-          <h1>FOOTER</h1>
-        </div>
+        <Footer primary />
       </div>
     );
   }
 }
+
+export default Layout;

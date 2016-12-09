@@ -1,1 +1,3 @@
-export const FILTER = 'FILTER'; // eslint-disable-line import/prefer-default-export
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const FILTER = 'FILTER';
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';

@@ -17,3 +17,5 @@ export const rootReducer = combineReducers({
   counter,
   routing,
 });
+
+// Look at counter and index in reducers folder --- they are very similar?

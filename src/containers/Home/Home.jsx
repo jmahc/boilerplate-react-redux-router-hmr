@@ -1,10 +1,13 @@
 // ==== Node Modules
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
+// import FontIcon from 'material-ui/FontIcon';
+
 // ==== Local Files
 import { incrementAsync } from 'actions/counter';
+
+// const faceIcon = <FontIcon color="white" />;
 
 class Home extends Component {
   static propTypes = {
@@ -17,14 +20,14 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>
-          {count} + 1
+          Current count is: {count}
         </h1>
-        <RaisedButton primary onClick={onIncrementClick}>
-          Increment Counter...!!!!!!
-        </RaisedButton>
-        <Link to="/about">
-          Go to about route
-        </Link>
+        <RaisedButton
+          default
+          fullWidth
+          label="Increment the counter by a value of 5!"
+          onClick={onIncrementClick}
+        />
       </div>
     );
   }

@@ -1,35 +1,15 @@
 // ==== Node Modules
-import { applyMiddleware, compose, createStore } from 'redux';
-import { persistState } from 'redux-devtools';
-import thunk from 'redux-thunk';
+import { createStore } from 'redux';
 
 // ==== Local Files
 import { rootReducer } from '../reducers';
-import DevTools from '../containers/DevTools/DevTools';
+import enhancer from './storeEnhancer';
 
-// ==== Redux Store Enhancers
-//
-let enhancer;
-if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-  enhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(
-    applyMiddleware(thunk),
-  );
-} else {
-  enhancer = compose(
-    applyMiddleware(thunk),
-    DevTools.instrument(),
-    persistState(
-      window.location.href.match(
-        /[?&]debug_session=([^&#]+)\b/,
-      ),
-    ),
-  );
-}
 
 const configureStore = (initialState) => {
   const store = createStore(
       rootReducer,
-      initialState,
+      initialState, // Typically defaulted to empty object
       enhancer,
   );
   // Creating your Redux store

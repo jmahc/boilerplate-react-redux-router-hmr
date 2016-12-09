@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER } from '../constants';
+import { INCREMENT_COUNTER } from './types';
 
 // ==== Setting the initial state.
 const initialState = {
