@@ -29,47 +29,46 @@ module.exports = {
 
   output: {
     filename: 'bundle.js',
-    // the output bundle
+    // ==== The output bundle's filename that is injected via `HtmlWebpackPlugin`
 
     path: __dirname,
-    // path: path.resolve(__dirname, 'dist'),
-    // the output location
+    // ==== The output location for our Webpack generated files.
 
     publicPath: `http://localhost:${port}/`,
-    // publicPath: '/',
-    // necessary for HMR to know where to load the hot update chunks
+    // ==== Necessary for HMR to know where to load the hot update chunks
   },
 
   devServer: {
     clientLogLevel: 'info',
-    // When using inline mode, the console in your DevTools will show you messages
-    // e.g. before reloading, before an error or when Hot Module Replacement is enabled.
+    // ==== Used in-tandem with `redux-devtools`
+    //      When using inline mode, the console in your DevTools will show you messages:
+    //      e.g. before reloading, before an error or when Hot Module Replacement is enabled.
 
     compress: true,
-    // enables gzip compression for everything served
+    // ==== Enables gzip compression for everything served for smaller file sizes.
 
     contentBase: __dirname,
-    // contentBase: path.resolve(__dirname, 'dist'),
-    // Tell the server where to serve content from.
-    // match the output path
+    // ==== Matches { output.path }
+    //      Tell the server where to serve content from.
 
     historyApiFallback: true,
-    // HTML5 History API, `index.html` will likely have be served in place of any 404 responses
+    // ==== HTML5 History API, `index.html` will `likely` be served in place of any 404 responses
+    //      - It is possible to override this in `routes.js`
 
     hot: true,
-    // Enable webpack's Hot Module Replacement feature
+    // ==== Enable webpack's Hot Module Replacement feature
 
     inline: true,
-    // requred for Hot Module Replacement
+    // ==== Required for Hot Module Replacement
 
     open: true,
-    // opens the user's default web browser after webpack build completes
+    // ==== While Webpack builds, the user's default browser will open to the correct port
 
-    port: port, // eslint-disable-line object-shorthand
-    // where the server is hosted
+    port: port,
+    // ==== Port number where the server can be accessed
 
     publicPath: '/',
-    // match the output `publicPath`
+    // ==== Note: match the { output.publicPath }
 
     stats: 'errors-only',
   },
@@ -98,6 +97,22 @@ module.exports = {
         ],
       },
       {
+        test: /\.scss/,
+        exclude: [
+          /node_modules/,
+        ],
+        include: [
+          path.join(__dirname, 'src/components'),
+          path.join(__dirname, 'src/containers'),
+        ],
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
           'file-loader',
@@ -114,46 +129,84 @@ module.exports = {
       inject: true,
       template: path.join(__dirname, 'public', 'index.html'),
 
+      // For injecting content (options) into `index.html`
       title: 'React Clock',
     }),
+    // ==== Outputs an HTML file with our code.
+
     new ProgressBarPlugin({
       format: `  building webpack... [:bar] ${chalk.green.bold(':percent')} (It took :elapsed seconds to build)\n`,
       clear: false,
     }),
+    // ==== Displays a progress bar on the console for Webpack's build process.
+
+
+    /*
+      TODO EOD Friday 12092016
+      ProgressPlugin
+      new webpack.ProgressPlugin(function handler(percentage, msg) {})
+      Hook into the compiler to extract progress information.
+      The handler must have the signature function(percentage, message).
+      It's called with 0 <= percentage <= 1. percentage == 0 indicates the start.
+      percentage == 1 indicates the end.
+    */
+
+
     new webpack.HotModuleReplacementPlugin(),
-    // enables HMR
+    // ==== Enables Hot Module Replacement
 
     new webpack.NoErrorsPlugin(),
+    // ==== When there are errors while compiling this plugin skips the emitting phase
+    //      (and recording phase), so there are no assets emitted that include errors.
 
     new webpack.NamedModulesPlugin(),
+
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        sassLoader: {
+          includePaths: [
+            path.resolve(__dirname, './src'),
+          ],
+          outputStyle: 'expanded',
+          sourceMap: true,
+        },
+        context: path.join(__dirname),
+      },
+    }),
+    // ==== To keep compatibility with old loaders, this information can be passed via plugin:
+    //      E.g. `sassLoader` options now become this.
 
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
       __DEVTOOLS__: true,
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
-    // allows you to create global constants which can be configured at compile time
+    // ==== Allows the creation of global constants which can be configured at compile time
   ],
   resolve: {
     descriptionFiles: [
       'package.json',
     ],
-    // These JSON files are read in directories
+    // ==== These JSON files are referenced for conifgurations.
+    //      e.g. `eslint` if not in its own file.
 
     enforceExtension: false,
-    // If false it will also try to use no extension from below
+    // ==== If false it will also try to use an extension from below
 
-    extensions: ['.jsx', '.js', '.json'],
-    // These extensions are tried when resolving a file
+    extensions: [
+      '.jsx',
+      '.js',
+      '.json',
+    ],
+    // ==== These extensions are tried when resolving a file
 
     modules: [
       'src',
       'node_modules',
     ],
-    // (was split into `root`, `modulesDirectories` and `fallback` in the old options)
-    // In which folders the resolver look for modules
-    // relative paths are looked up in every parent folder (like node_modules)
-    // absolute paths are looked up directly
-    // the order is respected
+    // ==== In which folders the resolver look for modules
+    //      - relative paths are looked up in every parent folder (like node_modules)
+    //      - absolute paths are looked up directly
+    //      - the order is respected
   },
 };
