@@ -148,6 +148,8 @@ module.exports = {
     // ==== Enables Hot Module Replacement
 
     new webpack.NoErrorsPlugin(),
+    // ==== When there are errors while compiling this plugin skips the emitting phase
+    //      (and recording phase), so there are no assets emitted that include errors.
 
     new webpack.NamedModulesPlugin(),
     // Default?
@@ -164,6 +166,7 @@ module.exports = {
         context: path.join(__dirname),
       },
     }),
+    // ==== Custom `sass-loader` options that adheres to Webpack's v2.0 API
 
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
