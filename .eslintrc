@@ -3,11 +3,16 @@
     "airbnb",
     "airbnb-base",
   ],
+
   "env": {
     "browser": true,
     "node": true,
     "mocha": true
   },
+
+  // This resolves the ESLINT error where you include propTypes inside the class definition.  See Root.jsx
+  "parser": "babel-eslint",
+
   // Custom rules for ESLINT
   "rules": {
     // Package rules for `eslint-plugin-jsx-a11y`
@@ -16,9 +21,10 @@
 
     // Package rules for `eslint-plugin-react`
     // Required by `eslint-plugin-airbnb`
-    "react/no-multi-comp": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-filename-extension": 0,
+    "react/no-multi-comp": 0,
+    "react/prefer-stateless-function": 0,
 
     // Package rules for `eslint-plugin-import`
     // Required by `eslint-plugin-airbnb-base`
@@ -45,7 +51,8 @@
     "no-continue": 0,
     "no-plusplus": 0,
     "no-underscore-dangle": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "object-shorthand": 0
   },
   "plugins": [
     "react",

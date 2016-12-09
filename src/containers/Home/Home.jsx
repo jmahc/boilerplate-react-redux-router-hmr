@@ -1,15 +1,47 @@
-// Node Modules
-import React from 'react';
+// ==== Node Modules
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
-// import ReactDOM from 'react-dom';
+import RaisedButton from 'material-ui/RaisedButton';
+// ==== Local Files
+import { incrementAsync } from 'actions/counter';
 
-const Home = () => (
-  <div>
-    <h1>
-      Home route :)
-    </h1>
-    <Link to="/about">Go to about route</Link>
-  </div>
-);
+class Home extends Component {
+  static propTypes = {
+    count: PropTypes.number,
+    onIncrementClick: PropTypes.func.isRequired,
+  };
 
-export default Home;
+  render() {
+    const { count, onIncrementClick } = this.props;
+    return (
+      <div className="home">
+        <h1>
+          {count}
+        </h1>
+        <RaisedButton primary onClick={onIncrementClick}>
+          Increment Counter....
+        </RaisedButton>
+        <Link to="/about">
+          Go to about route
+        </Link>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  count: state.counter.count,
+  routing: state.routing,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onIncrementClick: () => {
+    dispatch(incrementAsync());
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);
