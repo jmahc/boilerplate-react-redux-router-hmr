@@ -1,7 +1,7 @@
+// ==== Node Modules
 import React, { Component } from 'react';
-// import './Loading.scss';
 
-export default class Loading extends Component {
+class Loading extends Component {
   static propTypes = {};
   render() {
     return (
@@ -18,3 +18,5 @@ export default class Loading extends Component {
     );
   }
 }
+
+export default Loading;

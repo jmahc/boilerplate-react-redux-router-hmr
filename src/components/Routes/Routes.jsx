@@ -4,8 +4,9 @@ import { Route, IndexRoute } from 'react-router';
 // ==== Local Files
 import { About, Home, Layout } from 'containers';
 
-export default class Routes extends Component {
+class Routes extends Component {
   static propTypes = {};
+
   render() {
     return (
       <Route path='/' component={Layout}>
@@ -15,3 +16,5 @@ export default class Routes extends Component {
     );
   }
 }
+
+export default Routes;

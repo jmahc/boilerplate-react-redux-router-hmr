@@ -1,6 +1,8 @@
+// ==== Local Files
 import * as types from './types';
 
-export function filterTable(filter) { // eslint-disable-line import/prefer-default-export
+// eslint-disable-next-line import/prefer-default-export
+export function filterTable(filter) {
   return {
     type: types.FILTER,
     filter,

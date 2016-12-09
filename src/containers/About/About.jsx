@@ -1,15 +1,18 @@
-// Node Modules
-import React from 'react';
-import { Link } from 'react-router';
-// import ReactDOM from 'react-dom';
+// ==== Node Modules
+import React, { Component } from 'react';
 
-const About = () => (
-  <div>
-    <h1>
-      About route :)
-    </h1>
-    <Link to="/">Go to home route</Link>
-  </div>
-);
+class About extends Component {
+  static propTypes = {};
+
+  render() {
+    return (
+      <div className="about">
+        <h1>
+          About route :)
+        </h1>
+      </div>
+    );
+  }
+}
 
 export default About;

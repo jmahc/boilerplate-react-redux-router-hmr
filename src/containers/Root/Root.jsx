@@ -2,7 +2,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-// ==== Material-UI
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,7 +9,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { DevTools } from 'containers';
 import routes from '../../routes';
 
-export default class Root extends Component {
+class Root extends Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,
@@ -29,3 +28,5 @@ export default class Root extends Component {
     );
   }
 }
+
+export default Root;

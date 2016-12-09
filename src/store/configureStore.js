@@ -1,6 +1,5 @@
 // ==== Node Modules
 import { createStore } from 'redux';
-
 // ==== Local Files
 import { rootReducer } from '../reducers';
 import enhancer from './storeEnhancer';

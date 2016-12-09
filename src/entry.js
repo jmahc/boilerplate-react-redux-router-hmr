@@ -9,20 +9,18 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // ==== Local Files
 import Root from './containers/Root/Root';
 import configureStore from './store/configureStore';
-//
+
 // ==== Local Variables
-//
 const initialState = {};
 const store = configureStore(initialState);
 const history = syncHistoryWithStore(hashHistory, store);
 const rootEl = document.getElementById('root');
 
-
 // ==== Needed for onTouchTap
 //      Note: This should only be instantiated once!
 //      Reference: https://github.com/zilverline/react-tap-event-plugin
-injectTapEventPlugin();
 
+injectTapEventPlugin();
 
 ReactDOM.render(<Root store={store} history={history} />, rootEl);
 // ==== Render the application.

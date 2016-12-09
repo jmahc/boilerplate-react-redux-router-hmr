@@ -18,4 +18,6 @@ export const rootReducer = combineReducers({
   routing,
 });
 
+// TODO !!!
+// JM 12/09/2016
 // Look at counter and index in reducers folder --- they are very similar?

@@ -2,12 +2,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-// import FontIcon from 'material-ui/FontIcon';
-
 // ==== Local Files
 import { incrementAsync } from 'actions/counter';
-
-// const faceIcon = <FontIcon color="white" />;
 
 class Home extends Component {
   static propTypes = {
