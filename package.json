@@ -1,8 +1,11 @@
 {
   "name": "boilerplate-react-redux-router-hmr",
-  "version": "1.0.2",
-  "description": "The beginnings of boilerplate that works. Built with ReactJS, React-Router, HMR support and Webpack 2. Different branches will implement these tools individually and together.",
-  "main": "app.js",
+  "version": "1.0.3",
+  "description": {
+    "about": "The beginnings of boilerplate that works. Built with ReactJS, React-Router, HMR support and Webpack 2. Different branches will implement these tools individually and together.",
+    "type": "This branch features React, React-Router, HMR, Redux, and Webpack 2."
+  },
+  "main": "src/entry.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "start": "cross-env NODE_ENV=production webpack-dev-server",
