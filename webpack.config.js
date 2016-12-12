@@ -9,7 +9,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const port = 8080;
 
 module.exports = {
-  context: __dirname,
+  context: path.resolve(__dirname),
   // ==== The base directory, an absolute path, for resolving entry points and
   //      loaders from configuration.
   //
@@ -71,7 +71,7 @@ module.exports = {
 
 
     // path: path.resolve(__dirname),
-    path: __dirname,
+    path: path.resolve(__dirname),
     // ==== The output directory as an absolute path.
     //
     // Reference: https://webpack.js.org/configuration/output/#output-path/
@@ -294,7 +294,6 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      // chunks: ['index'],
       favicon: path.join(__dirname, 'public', 'favicon.ico'),
       filename: 'index.html',
       inject: true,
@@ -319,7 +318,6 @@ module.exports = {
     //      (and recording phase), so there are no assets emitted that include errors.
 
     new webpack.NamedModulesPlugin(),
-    // Default?
 
     new webpack.LoaderOptionsPlugin({
       options: {
