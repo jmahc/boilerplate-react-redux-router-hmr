@@ -1,39 +1,39 @@
-// Node Modules
+// ==== Node Modules
+import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { AppContainer } from 'react-hot-loader';
-
-// Imported Local Files
-import App from './containers/App/App';
+// ==== Local Files
+import Root from './containers/Root/Root';
 
 // Local Variables
 const rootEl = document.getElementById('root');
 
 injectTapEventPlugin();
-// 300ms response time fix for iOS
+// ==== Needed for onTouchTap
+//      NOTE: This should only be instantiated once!
+//
+// Reference: https://github.com/zilverline/react-tap-event-plugin
 
-const renderApp = (Application) => {
-  ReactDOM.render(
-    <AppContainer>
-      <Application />
-    </AppContainer>,
-    rootEl,
-  );
-};
-// render application method for instantiation and HMR.
-
-renderApp(App);
-// instantiate the application
+ReactDOM.render(<Root />, rootEl);
+// ==== Render the application.
+//      NOTE 1: If you notice, the instantiated `Root` is NOT
+//              surrounded by AppContainer from `react-hot-loader`.
+//      NOTE 2: You can wrap this in the `<AppContainer>` and it still works fine.
+//      NOTE 3: It is required when doing the module reloading as seen below.
+//
+//      TODO - Investigate why this is.
 
 if (__DEVELOPMENT__ && module.hot) {
   module.hot.accept([
-    './containers/App/App',
+    './containers/Root/Root', // Same path as imported above
   ], () => {
-    const NextApplication = require('./containers/App/App').default; // eslint-disable-line global-require
-    // require path is same as module hot path
-
-    renderApp(NextApplication);
-    // re-render the updated app
+    ReactDOM.render(
+      <AppContainer>
+        <Root />
+      </AppContainer>,
+      rootEl,
+    );
   });
 }

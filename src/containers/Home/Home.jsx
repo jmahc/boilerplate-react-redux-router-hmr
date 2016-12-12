@@ -1,15 +1,18 @@
-// Node Modules
-import React from 'react';
-import { Link } from 'react-router';
-// import ReactDOM from 'react-dom';
+// ==== Node Modules
+import React, { Component } from 'react';
 
-const Home = () => (
-  <div>
-    <h1>
-      Home route :)
-    </h1>
-    <Link to="/about">Go to about route</Link>
-  </div>
-);
+class Home extends Component {
+  static propTypes = {};
+
+  render() {
+    return (
+      <div className="home">
+        <h1>
+          Welcome to the home page!
+        </h1>
+      </div>
+    );
+  }
+}
 
 export default Home;
