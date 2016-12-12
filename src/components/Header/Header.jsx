@@ -62,12 +62,12 @@ class Header extends Component {
             </MenuItem>
           </Link>
           <MenuItem onTouchTap={this._handleClose}>
-            Menu Item 3
+            This might close the drawer.
           </MenuItem>
         </Drawer>
         <AppBar
           onLeftIconButtonTouchTap={this._handleToggle}
-          title="My AppBar"
+          title="My Application Header"
         />
       </div>
     );

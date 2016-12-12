@@ -1,17 +1,16 @@
 // ==== Local Files
-import { INCREMENT_COUNTER } from './types';
+import * as types from '../constants';
 
-// ==== Setting the initial state.
 const initialState = {
   count: 0,
 };
 
 // ==== Reducer
-export default function reducer(state = initialState, action = {}) {
+export default function counterReducer(state = initialState, action = {}) {
   const { count } = state;
 
   switch (action.type) {
-    case INCREMENT_COUNTER:
+    case types.INCREMENT_COUNTER:
       return {
         count: count + 5,
       };
@@ -23,7 +22,7 @@ export default function reducer(state = initialState, action = {}) {
 // ==== Action Creators
 export function increment() {
   return {
-    type: INCREMENT_COUNTER,
+    type: types.INCREMENT_COUNTER,
   };
 }
 

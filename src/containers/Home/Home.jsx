@@ -16,9 +16,10 @@ class Home extends Component {
     return (
       <div className="home">
         <h1>
-          Current count is: {count}
+          Current count is: {count}.
         </h1>
         <RaisedButton
+          className="home-increment"
           default
           fullWidth
           label="Increment the counter by a value of 5!"

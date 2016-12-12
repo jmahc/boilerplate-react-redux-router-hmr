@@ -12,7 +12,7 @@ class Footer extends Component {
       <div className="footer">
         <AppBar
           showMenuIconButton={false}
-          title="My Footer"
+          title="Application Footer."
         />
       </div>
     );

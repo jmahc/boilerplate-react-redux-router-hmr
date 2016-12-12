@@ -2,18 +2,9 @@
 <html>
 
 <head>
-  <!--<meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Jordan McArdle - GitHub @jmahc">
-  <meta name="description" content="clock-react">
-  <base href="./" />-->
-  <!-- HTML Webpack Options (injected) -->
-  <title>
-    <%= htmlWebpackPlugin.options.title %>
-  </title>
-  <!-- Local files -->
-  <!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+  <!-- react-helmet -->
+  <!-- html-webpack-plugin -->
+  <title><%= htmlWebpackPlugin.options.title %></title>
   <!-- External Dependencies -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -23,7 +14,6 @@
   <div id="root">
     <style type="text/css" scoped>
       h1 { z-index: 10; font-family: 'Roboto', 'Helvetica', sans-serif; display: inline-block; }
-
       .loader {
         margin: 10% auto;
         font-size: 10px;
@@ -40,20 +30,9 @@
         animation: loaderCircleSpin 1.1s infinite linear;
       }
 
-      .loader,
-      .loader::after {
-        border-radius: 50%;
-        width: 10em;
-        height: 10em;
-        z-index: 999999;
-      }
+      .loader, .loader::after { border-radius: 50%; width: 10em; height: 10em; z-index: 999999; }
 
-      .loader-header {
-        display: inline-block;
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-      }
+      .loader-header { display: inline-block; width: 100%; margin: 0 auto; text-align: center; }
 
       .loader-wrench {
         z-index: 10000;
@@ -136,10 +115,7 @@
     </style>
     <div class="loader-header">
       <i class="loader-wrench material-icons wrench-rotate">&#xE869;</i>
-      <h1>
-        Please be patient while Webpack builds.
-        <span class="loader-rotate"></span>
-      </h1>
+      <h1>Please be patient while Webpack builds.<span class="loader-rotate"></span></h1>
     </div>
     <div class="loader">Loading...</div>
   </div>

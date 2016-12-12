@@ -1,3 +1,5 @@
-// TODO
-// JM 12/09/2016
-// Not sure what exactly with this quite yet.
+// ==== Action Types
+
+// Counter
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
