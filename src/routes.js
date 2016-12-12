@@ -1,16 +1,15 @@
-// Node Modules
+// ==== Node Modules
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
-
-// Imported Local Files
-import { App, Home, About } from 'containers';
+// ==== Local Files
+import { About, Home, Layout } from 'containers';
 
 const routes = (
-  <Route component={App} path="/">
-    <IndexRoute component={Home} path="" />
-    <Route component={About} path="/about" />
+  <Route path="/" component={Layout}>
+    <IndexRoute path="" component={Home} />
+    <Route path="/about" component={About} />
   </Route>
 );
-// routes must be exported in order for HMR to work.
+// ==== Routes must be exported in order for HMR to work.
 
 export default routes;

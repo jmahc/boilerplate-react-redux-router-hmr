@@ -1,42 +1,40 @@
-// Node Modules
+// ==== Node Modules
+import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import { AppContainer } from 'react-hot-loader';
-
-// Imported Local Files
+import { hashHistory as history } from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+// ==== Local Files
 import Root from './containers/Root/Root';
 
-// Development Only
-// import hotReloadRoutes from './util/hotReloadRoutes';
-
-// Local Variables
+// ==== Local Variables
 const rootEl = document.getElementById('root');
 
 injectTapEventPlugin();
-// 300ms response time fix for iOS
+// ==== Needed for onTouchTap
+//      NOTE: This should only be instantiated once!
+//
+// Reference: https://github.com/zilverline/react-tap-event-plugin
 
-const renderApp = (RootComponent) => {
-  ReactDOM.render(
-    <AppContainer>
-      <RootComponent />
-    </AppContainer>,
-    rootEl,
-  );
-};
-// render application method for instantiation and HMR.
-
-renderApp(Root);
-// instantiate the application
+ReactDOM.render(<Root history={history} />, rootEl);
+// ==== Render the application.
+//      NOTE 1: If you notice, the instantiated `Root` is NOT
+//              surrounded by AppContainer from `react-hot-loader`.
+//      NOTE 2: You can wrap this in the `<AppContainer>` and it still works fine.
+//      NOTE 3: It is required when doing the module reloading as seen below.
+//
+//      TODO - Investigate why this is.
 
 if (__DEVELOPMENT__ && module.hot) {
   module.hot.accept([
-    './containers/Root/Root',
+    './containers/Root/Root', // Same path as imported above
   ], () => {
-    const NextRoot = require('./containers/Root/Root').default; // eslint-disable-line global-require
-    // require path is same as module hot path
-
-    renderApp(NextRoot);
-    // re-render the updated app
+    ReactDOM.render(
+      <AppContainer>
+        <Root history={history} />
+      </AppContainer>,
+      rootEl,
+    );
   });
 }

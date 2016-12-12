@@ -1,5 +1,5 @@
 # boilerplate-react-redux-router-hmr
-*Current Version as of 12/02/2016*: 1.0.1
+*Current Version as of 12/12/2016*: 1.0.3
 
 Welcome to my app! Hopefully this will help with your Webpack 2, HMR, react, react-router, and Redux troubles!
 Note: `package.json` has **hard-coded** dependencies!  I will update these manually to ensure they do not break.
@@ -74,10 +74,10 @@ Below are the different technologies used in this repository.
 ## Repository Roadmap
 Below are several tasks that I want to tackle:
 - [ ] Individual branches for:
-  - [ ] HMR + React (Redux-free & Router-free)
+  - [x] HMR + React (Redux-free & Router-free)
   - [x] HMR + React + Router (Redux-free)
   - [ ] HMR + React + Redux (Router-free)
-  - [ ] HMR + React + Redux + Router
+  - [x] HMR + React + Redux + Router
 - [ ] [Blog post](https://blog.mcardle.tech/) on the process with explanations
 - [ ] Testing framework
 - [ ] Webpack optimizations
