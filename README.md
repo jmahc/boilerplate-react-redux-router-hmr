@@ -1,7 +1,7 @@
 # boilerplate-react-redux-router-hmr
 *Current Version as of 12/12/2016*: 1.0.3
 
-Welcome to my app! Hopefully this will help with your Webpack 2, HMR, react, react-router, and Redux troubles!
+Welcome to my app! Hopefully this will help with your Webpack 2, HMR, react, react-router 4, and Redux troubles!
 Note: `package.json` has **hard-coded** dependencies!  I will update these manually to ensure they do not break.
 
 ---

@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": {
     "about": "The beginnings of boilerplate that works. Built with ReactJS, React-Router, HMR support and Webpack 2. Different branches will implement these tools individually and together.",
-    "type": "This branch features React, React-Router 3, HMR and Webpack 2."
+    "type": "This branch features React, React-Router 4, HMR and Webpack 2."
   },
   "main": "src/entry.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "material-ui": "0.16.0-alpha",
     "react": "15.4.0",
     "react-dom": "15.4.0",
-    "react-router": "3.0.0",
+    "react-router": "4.0.0-2",
     "react-tap-event-plugin": "2.0.1"
   },
   "devDependencies": {
